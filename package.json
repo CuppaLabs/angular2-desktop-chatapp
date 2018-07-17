@@ -2,13 +2,16 @@
   "name": "angular-electron",
   "version": "0.0.0",
   "license": "MIT",
+  "main": "main.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod",
+    "build": "electron-packager . --platform=win32",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "electron": "electron ./dist/index.html",
+    "electron-build": "ng build --prod && npm run electron"
   },
   "private": true,
   "dependencies": {
@@ -23,7 +26,11 @@
     "@angular/router": "^5.2.0",
     "core-js": "^2.4.1",
     "rxjs": "^5.5.6",
-    "zone.js": "^0.8.19"
+    "zone.js": "^0.8.19",
+    "angular2-flash-messages": "^1.0.8",
+    "angular2-jwt": "^0.2.3",
+    "moment": "^2.18.1",
+    "socket.io-client": "^1.7.3"
   },
   "devDependencies": {
     "@angular/cli": "~1.7.1",
@@ -33,6 +40,8 @@
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
     "codelyzer": "^4.0.1",
+    "electron": "^2.0.5",
+    "electron-packager": "^12.1.0",
     "jasmine-core": "~2.8.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~2.0.0",
